@@ -7,7 +7,7 @@ class serialProcess {
 };
 
 namespace dataProcess {
-  void collectVars(int arrayPtr);
+  void collectVars(int *arrayPtr);
   int processVars(int input, int upper, int lower, int deadzone, int upperPWM, int lowerPWM);
 
 }
