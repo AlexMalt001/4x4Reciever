@@ -3,7 +3,7 @@
 #include <Servo.h>
 #include "serialProcess.h"
 
-
+int test;
 Servo steerServo;
 
 loader loader;
@@ -35,7 +35,7 @@ void loop() {
     digitalWrite(headlightPin, HIGH);
   } else {
     digitalWrite(headlightPin, LOW);
-  } 
+  }
   if ((millis() % 50) == 0) {
    // int outArray[] = *(dataProcess :: collectVars());
     //TODO: ADD VAR SERIAL HANDLER
