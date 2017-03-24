@@ -3,7 +3,6 @@
 #include <Servo.h>
 #include "serialProcess.h"
 
-int test;
 Servo steerServo;
 
 loader loader;
