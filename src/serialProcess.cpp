@@ -4,7 +4,7 @@
 
 
 void serialProcess :: sendVars(int *arrayPtr) {
-
+  
 }
 
 int dataProcess :: processVars(int input, int upper, int lower, int deadzone, int upperPWM, int lowerPWM) {
@@ -17,5 +17,8 @@ int dataProcess :: processVars(int input, int upper, int lower, int deadzone, in
 }
 
 void dataProcess :: collectVars(int *arrayPtr) {
-
+  *arrayPtr = 1;
+  *(arrayPtr+1) = 2;
+  *(arrayPtr+2) = 2;
+  *(arrayPtr+3) = 2;
 }

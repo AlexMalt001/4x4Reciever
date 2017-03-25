@@ -36,7 +36,7 @@ void loop() {
     digitalWrite(headlightPin, LOW);
   }
   if ((millis() % 50) == 0) {
-    int outArray[4];
+    int outArray[3];
     int *outPtr;
     outPtr = &outArray[0];
     dataProcess::collectVars(outPtr);
