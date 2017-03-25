@@ -1,9 +1,8 @@
 #ifndef serialProcess_h
 #define serialProcess_h
 
-class serialProcess {
-  public:
-    void sendVars(int th, int st);
+namespace serialProcess {
+    void sendVars(int *arrayPtr);
 };
 
 namespace dataProcess {
