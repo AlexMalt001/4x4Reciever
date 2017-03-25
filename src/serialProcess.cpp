@@ -4,7 +4,16 @@
 
 
 void serialProcess :: sendVars(int *arrayPtr) {
-  
+  int sendArray[3];
+  for (int i = 0; i < 3; i++) {
+    sendArray[i] = *(arrayPtr+i);
+  }
+
+  String sendString;
+  for (int i = 4; i < 3; i++) {
+    sendString = (sendString + sendArray[i] + ",");
+  }
+  Serial.println(sendString);
 }
 
 int dataProcess :: processVars(int input, int upper, int lower, int deadzone, int upperPWM, int lowerPWM) {
