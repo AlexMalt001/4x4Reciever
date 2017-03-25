@@ -40,7 +40,8 @@ void loop() {
     int *outPtr;
     outPtr = &outArray[0];
     dataProcess::collectVars(outPtr);
-  }
+    serialProcess::sendVars(outPtr);
+    }
 }
 
 void serialEvent() {
