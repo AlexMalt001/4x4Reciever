@@ -46,9 +46,8 @@ void loop() {
 
 void serialEvent() {
    while (Serial.available()) {
-     thVar = Serial.readStringUntil(',').toInt();
+     stVar = Serial.readStringUntil(',').toInt();
      Serial.read();
-     String hurrah = Serial.readStringUntil('\n');
-     stVar = Serial.readStringUntil('\n').toInt();
+     thVar = Serial.readStringUntil('\n').toInt();
    }
 }
