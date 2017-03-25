@@ -4,7 +4,7 @@
 #include "serialProcess.h"
 
 Servo steerServo;
-//test
+
 loader loader;
 using namespace loadVarStore;
 
