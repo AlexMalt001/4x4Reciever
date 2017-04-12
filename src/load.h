@@ -3,7 +3,7 @@
 
 #include "Arduino.h"
 
-  
+
   class loader {
   public:
     void modeSet();
@@ -11,9 +11,11 @@
 };
 
 namespace loadVarStore{
-  const int throttle = A0;
-  const int steerPin = A1;
+  const int th = 6;
+  const int st = 11;
   const int headlightPin = 4;
+  const int tiltSense = A0;
+  const int lightSense = A1;
 }
 
 #endif

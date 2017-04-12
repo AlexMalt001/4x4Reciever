@@ -15,8 +15,8 @@ String inArray[NO_ARGS];
 
 const int LIGHT_LIMIT = 123;
 
-int st;
-int th;
+int thVar;
+int stVar;
 
 void setup() {
   Serial.begin(9600);
@@ -36,18 +36,19 @@ void loop() {
     digitalWrite(headlightPin, LOW);
   }
   if ((millis() % 50) == 0) {
-    int outArray[4];
+    int outArray[3];
     int *outPtr;
     outPtr = &outArray[0];
     dataProcess::collectVars(outPtr);
-  }
+    serialProcess::sendVars(outPtr);
+    }
 }
 
 void serialEvent() {
    while (Serial.available()) {
-     th = Serial.readStringUntil(',').toInt();
+     thVar = Serial.readStringUntil(',').toInt();
      Serial.read();
      String hurrah = Serial.readStringUntil('\n');
-     st = Serial.readStringUntil('\n').toInt();
+     stVar = Serial.readStringUntil('\n').toInt();
    }
 }

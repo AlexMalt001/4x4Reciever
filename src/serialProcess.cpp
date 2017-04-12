@@ -3,8 +3,17 @@
 #include "serialProcess.h"
 
 
-void serialProcess :: sendVars(int th, int st) {
-//  Serial1.println(st + "," + th);
+void serialProcess :: sendVars(int *arrayPtr) {
+  int sendArray[3];
+  for (int i = 0; i < 3; i++) {
+    sendArray[i] = *(arrayPtr+i);
+  }
+
+  String sendString;
+  for (int i = 0; i < 2; i++) {
+    sendString = (sendString + sendArray[i] + ",");
+  }
+  Serial.println(sendString);
 }
 
 int dataProcess :: processVars(int input, int upper, int lower, int deadzone, int upperPWM, int lowerPWM) {
@@ -15,8 +24,10 @@ int dataProcess :: processVars(int input, int upper, int lower, int deadzone, in
   int result = (presult*(upperPWM-lowerPWM))+lowerPWM;
   return result;
 }
+
 void dataProcess :: collectVars(int *arrayPtr) {
-  for (int i = 0; i < 4; i++) {
-    /* code */
-  }
+  *arrayPtr = digitalRead(A0);
+  *(arrayPtr+1) = analogRead(A1);
+  *(arrayPtr+2) = 2;
+  *(arrayPtr+3) = 2;
 }
