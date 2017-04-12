@@ -19,22 +19,21 @@ int thVar;
 int stVar;
 
 void setup() {
-  Serial.begin(9600);
   loader.serialSetup();
-  steerServo.attach(6);
-  pinMode(11, OUTPUT);
-  pinMode(A1, INPUT);
+  loader.modeSet();
+  steerServo.attach(st);
 }
 
 void loop() {
-  steerServo.write(st);
-  analogWrite(th, 11);
+  steerServo.write(stVar);
+  analogWrite(thVar, th);
 
   if(analogRead(A1) < LIGHT_LIMIT) {
     digitalWrite(headlightPin, HIGH);
   } else {
     digitalWrite(headlightPin, LOW);
   }
+
   if ((millis() % 50) == 0) {
     int outArray[3];
     int *outPtr;
@@ -42,13 +41,13 @@ void loop() {
     dataProcess::collectVars(outPtr);
     serialProcess::sendVars(outPtr);
     }
+
 }
 
 void serialEvent() {
    while (Serial.available()) {
-     thVar = Serial.readStringUntil(',').toInt();
+     stVar = Serial.readStringUntil(',').toInt();
      Serial.read();
-     String hurrah = Serial.readStringUntil('\n');
-     stVar = Serial.readStringUntil('\n').toInt();
+     thVar = Serial.readStringUntil('\n').toInt();
    }
 }

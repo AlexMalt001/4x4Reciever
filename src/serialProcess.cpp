@@ -1,6 +1,9 @@
 
 #include "Arduino.h"
 #include "serialProcess.h"
+#include "load.h"
+
+using namespace loadVarStore;
 
 
 void serialProcess :: sendVars(int *arrayPtr) {
@@ -26,8 +29,14 @@ int dataProcess :: processVars(int input, int upper, int lower, int deadzone, in
 }
 
 void dataProcess :: collectVars(int *arrayPtr) {
-  *arrayPtr = digitalRead(A0);
-  *(arrayPtr+1) = analogRead(A1);
+  bool tempBool;
+  if(digitalRead(tiltSense) == HIGH) {
+    tempBool = 1;
+  } else {
+    tempBool = 0;
+  }
+  *arrayPtr = tempBool;
+  *(arrayPtr+1) = analogRead(lightSense);
   *(arrayPtr+2) = 2;
   *(arrayPtr+3) = 2;
 }
